@@ -101,6 +101,8 @@ int pingpong(struct __sk_buff *skb)
 
 	/* We modified the packet and redirected it, it can be dropped here */
 	return TC_ACT_SHOT;
+	
+//	return bpf_redirect(skb->ifindex, 0); // replace bpf_clone_redirect and return TC_ACT_SHOT
 }
 
 char __license[] SEC("license") = "GPL";
